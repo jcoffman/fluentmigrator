@@ -89,10 +89,10 @@ namespace FluentMigrator.Runner.Generators
 			return FormatExpression("sp_rename '{0}[{1}].[{2}]', [{3}]", FormatSchema(expression.SchemaName, false), expression.TableName, expression.OldName, expression.NewName);
 		}
 
-        public override string Generate(AlterColumnExpression expression)
-        {
-            return FormatExpression("ALTER TABLE {0}[{1}] ALTER COLUMN {2}", FormatSchema(expression.SchemaName), expression.TableName, GenerateDDLForColumn(expression.Column));
-        }
+		public override string Generate(AlterColumnExpression expression)
+		{
+			return FormatExpression("ALTER TABLE {0}[{1}] ALTER COLUMN {2}", FormatSchema(expression.SchemaName), expression.TableName, GenerateDDLForColumn(expression.Column));
+		}
 
 		public override string Generate(CreateTableExpression expression)
 		{
@@ -212,10 +212,10 @@ namespace FluentMigrator.Runner.Generators
 			return result.ToString();
 		}
 
-        public override string Generate(AlterDefaultConstraintExpression expression)
-        {
-            const string sql =
-                @"
+		public override string Generate(AlterDefaultConstraintExpression expression)
+		{
+			const string sql =
+				@"
 			DECLARE @default sysname, @sql nvarchar(max);
 
 			-- get name of default constraint
@@ -238,8 +238,8 @@ namespace FluentMigrator.Runner.Generators
 			SET @sql = N'ALTER TABLE {0}[{2}] WITH NOCHECK ADD CONSTRAINT [' + @default + '] DEFAULT({4}) FOR {3}';
 			EXEC sp_executesql @sql;";
 
-            return FormatExpression(sql, FormatSchema(expression.SchemaName), FormatSchema(expression.SchemaName, false), expression.TableName, expression.ColumnName, FormatSqlEscape(GetConstantValue(expression.DefaultValue)));
-        }
+			return FormatExpression(sql, FormatSchema(expression.SchemaName), FormatSchema(expression.SchemaName, false), expression.TableName, expression.ColumnName, FormatSqlEscape(GetConstantValue(expression.DefaultValue)));
+		}
 
 		protected string FormatSchema(string schemaName)
 		{
