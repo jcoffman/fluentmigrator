@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FluentMigrator.Runner</RootNamespace>
     <AssemblyName>FluentMigrator.Runner</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -239,7 +239,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-	<None Include="..\FluentMigrator.snk">
+    <None Include="..\FluentMigrator.snk">
       <Link>FluentMigrator.snk</Link>
     </None>
     <Content Include="SQLServerCENative\amd64\Microsoft.VC90.CRT\msvcr90.dll">
