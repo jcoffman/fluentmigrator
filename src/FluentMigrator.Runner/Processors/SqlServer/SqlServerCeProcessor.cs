@@ -46,7 +46,8 @@ namespace FluentMigrator.Runner.Processors.SqlServer
 
         public override bool SchemaExists(string schemaName)
         {
-            return Exists("SELECT * FROM SYS.SCHEMAS WHERE NAME = '{0}'", FormatSqlEscape(schemaName));
+            //return Exists("SELECT * FROM SYS.SCHEMAS WHERE NAME = '{0}'", FormatSqlEscape(schemaName));
+            return true;
         }
 
         public override bool TableExists(string schemaName, string tableName)
